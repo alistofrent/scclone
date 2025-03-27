@@ -31,14 +31,23 @@ Use quotes "" around filepaths and anything that has a space in it to have it pr
 
 Example command series:
 scclone.exe (Just executing the file will bring up a supported commands list)
+
 scclone.exe create /servicename TestService /binpath "C:\Users\User\Desktop\test_service.exe --service" /displayname "TestService"
+
 scclone.exe create /servicename TestFullService /binpath "C:\Users\User\Desktop\test_service.exe --service" /displayname "TestService" /type own /start auto /error critical /group NetworkProvider /tag yes /depend RPCSS/Tcpip /obj LocalSystem /password "" /description "This is a test service that uses all parameters" (note that 'config' syntax is the same except without the /tag option)
+
 scclone.exe query TestService
+
 scclone.exe failure TestService /reset 30 /actions "restart/2000" /command "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
+
 sc qc TestService and 'sc qfailure TestService' (this file does not contain functionality for 'qc' which shows config info or qfailure which shows failure info)
+
 scclone.exe start TestService
+
 scclone.exe qdescription TestService
+
 scclone.exe stop TestService
+
 scclone.exe delete TestService
 
 
